@@ -11,7 +11,7 @@ struct Node {
     Node * prev;
 };
 
-struct List {
+typedef struct List {
     Node * head;
     Node * tail;
     Node * current;
@@ -31,16 +31,22 @@ Node * createNode(void * data) {
 List * createList() {
     List* L = (List*)malloc(sizeof(List));
     if (L == NULL) exit(1);
-    
     L->head = NULL;
     L->tail = NULL;
     L->current = NULL;
-
     return L;
 }
 
+/*
+2. Programe las funciones `void * firstList(List * list)` y `void * nextList(List * list)`. 
+   * La primera retorna el dato del primer nodo de la lista (`head`) y actualiza el current para que apunte a ese nodo. 
+   * La segunda función retorna el dato del nodo a continuación del current y actualiza el current para que apunte a ese nodo.
+*/
+
 void * firstList(List * list) {
-    return NULL;
+    if (list->head == NULL) return NULL;
+    list->current = list->head;
+    return list->head->data;
 }
 
 void * nextList(List * list) {
