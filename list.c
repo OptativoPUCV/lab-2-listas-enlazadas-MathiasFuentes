@@ -48,13 +48,13 @@ void * firstList(List * list) {
     list->current = list->head;
     return list->head->data;
 }
-
+/*
 void * nextList(List * list) {
     if (list->head == NULL || list->current->next == NULL) return NULL;
     list->current = list->current->next;
     return list->current->data;
 }
-
+*/
 void * lastList(List * list) {
     return NULL;
 }

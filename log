@@ -35,3 +35,12 @@ Thu, Mar 27, 2025  5:30:37 PM:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 0819d7f
+Thu, Mar 27, 2025  5:31:03 PM: 
+ list.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+C:\Users\ESTUDI~1\AppData\Local\Temp\cc874LVw.o:test.c:(.text+0x507): undefined reference to `nextList'
+C:\Users\ESTUDI~1\AppData\Local\Temp\cc874LVw.o:test.c:(.text+0x5c6): undefined reference to `nextList'
+C:\Users\ESTUDI~1\AppData\Local\Temp\cc874LVw.o:test.c:(.text+0x61b): undefined reference to `nextList'
+collect2.exe: error: ld returned 1 exit status
+Compilation failed
+ed3fc14
