@@ -11,7 +11,7 @@ struct Node {
     Node * prev;
 };
 
-typedef struct List {
+struct List {
     Node * head;
     Node * tail;
     Node * current;
