@@ -116,22 +116,37 @@ void * popBack(List * list) {
 */
 void * popCurrent(List * list) {
     if (list->head == NULL || list->current == NULL) return NULL;
+
     void* value = list->current->data;
     Node* elim = list->current;
-    if (list->head == list->current){ 
-        list->current->next->prev = NULL;
-        list->head = list->current->next;
-        list->current = list->current->next;
+
+    // Si el current es el último, debe moverse antes de eliminar
+    if (list->current == list->tail) {
+        list->current = NULL;  // No hay un siguiente nodo disponible
+    } else {
+        list->current = list->current->next;  // Avanza antes de eliminar
     }
-    if (list->tail == list->current || list->tail->prev != NULL){
-        list->tail = list->tail->prev;
-        list->tail->next = NULL;
-        list->current = NULL;
+
+    // Caso: único nodo en la lista
+    if (list->head == list->tail) {
+        list->head = list->tail = NULL;
     }
-    else{
-        list->current->prev->next = list->current->next;
-        list->current->next->prev = list->current->prev;
+    // Caso: eliminar la cabeza
+    else if (elim == list->head) {
+        list->head = elim->next;
+        if (list->head) list->head->prev = NULL;
     }
+    // Caso: eliminar la cola
+    else if (elim == list->tail) {
+        list->tail = elim->prev;
+        if (list->tail) list->tail->next = NULL;
+    }
+    // Caso: nodo intermedio
+    else {
+        elim->prev->next = elim->next;
+        elim->next->prev = elim->prev;
+    }
+
     free(elim);
     return value;
 }
